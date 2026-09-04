@@ -1,0 +1,166 @@
+.menu-toggle {
+  margin-left: auto;
+  margin-right: 1rem;
+  width: 2.5rem;
+  height: 2rem;
+  border: 0;
+  background: transparent;
+  display: grid;
+  gap: 0.32rem;
+  align-content: center;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 0.12rem;
+  background: var(--color-brown-dark);
+}
+
+.carousel {
+  margin-top: 1.2rem;
+}
+
+.carousel__viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__track {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  padding-bottom: 0.4rem;
+}
+
+.service-card {
+  flex: 0 0 calc(100vw - 4rem);
+  max-width: 20rem;
+  scroll-snap-align: start;
+  background: var(--color-beige);
+  color: var(--color-brown-dark);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.service-card h3 {
+  font-size: 1.35rem;
+  color: var(--color-brown);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.service-card p {
+  font-size: 0.97rem;
+}
+
+.service-card__includes-title {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--color-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.service-card__includes {
+  margin-top: 0.5rem;
+  list-style: none;
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.92rem;
+}
+
+.service-card__price {
+  margin-top: 0.95rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-brown-dark);
+}
+
+.carousel__controls {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.carousel__arrow {
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 999px;
+  border: 0;
+  background: var(--color-brown-dark);
+  color: var(--color-beige);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.carousel__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.carousel__dot {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(248, 230, 216, 0.42);
+  cursor: pointer;
+}
+
+.carousel__dot.is-active {
+  background: var(--color-beige);
+}
+
+.marquee {
+  overflow: hidden;
+}
+
+.marquee__track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: luco-marquee 32s linear infinite;
+}
+
+.marquee__image {
+  flex: 0 0 15rem;
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 0.6rem;
+}
+
+@keyframes luco-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 48rem) {
+  .service-card {
+    flex: 0 0 22rem;
+    max-width: 22rem;
+  }
+
+  .marquee__image {
+    flex: 0 0 22rem;
+    height: 10rem;
+  }
+}

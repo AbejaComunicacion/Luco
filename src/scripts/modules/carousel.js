@@ -1,0 +1,96 @@
+function getStepDistance(viewport) {
+  const firstCard = viewport.querySelector(".service-card");
+
+  if (!firstCard) {
+    return viewport.clientWidth;
+  }
+
+  const track = viewport.querySelector(".carousel__track");
+  const trackStyle = track ? getComputedStyle(track) : null;
+  const gap = parseFloat(trackStyle?.gap || "0");
+
+  return firstCard.getBoundingClientRect().width + gap;
+}
+
+function getActiveIndex(viewport, totalSlides) {
+  if (totalSlides <= 1) {
+    return 0;
+  }
+
+  const step = getStepDistance(viewport);
+  const rawIndex = Math.round(viewport.scrollLeft / step);
+  return Math.max(0, Math.min(totalSlides - 1, rawIndex));
+}
+
+function buildDots(container, totalSlides) {
+  const dots = [];
+
+  for (let index = 0; index < totalSlides; index += 1) {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "carousel__dot";
+    dot.setAttribute("aria-label", `Ir a tarjeta ${index + 1}`);
+    dot.dataset.index = String(index);
+    container.appendChild(dot);
+    dots.push(dot);
+  }
+
+  return dots;
+}
+
+export function initCarousel() {
+  const carousels = document.querySelectorAll("[data-carousel]");
+
+  carousels.forEach((carouselElement) => {
+    const viewport = carouselElement.querySelector(".carousel__viewport");
+    const slides = carouselElement.querySelectorAll(".service-card");
+    const prevButton = carouselElement.querySelector("[data-carousel-prev]");
+    const nextButton = carouselElement.querySelector("[data-carousel-next]");
+    const dotsContainer = carouselElement.querySelector("[data-carousel-dots]");
+
+    if (!viewport || !prevButton || !nextButton || !dotsContainer || slides.length === 0) {
+      return;
+    }
+
+    const dots = buildDots(dotsContainer, slides.length);
+
+    function setActiveDot() {
+      const activeIndex = getActiveIndex(viewport, slides.length);
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === activeIndex);
+      });
+    }
+
+    function goTo(index) {
+      const step = getStepDistance(viewport);
+      viewport.scrollTo({ left: index * step, behavior: "smooth" });
+    }
+
+    prevButton.addEventListener("click", () => {
+      const currentIndex = getActiveIndex(viewport, slides.length);
+      goTo(Math.max(0, currentIndex - 1));
+    });
+
+    nextButton.addEventListener("click", () => {
+      const currentIndex = getActiveIndex(viewport, slides.length);
+      goTo(Math.min(slides.length - 1, currentIndex + 1));
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const index = Number(dot.dataset.index);
+
+        if (Number.isNaN(index)) {
+          return;
+        }
+
+        goTo(index);
+      });
+    });
+
+    viewport.addEventListener("scroll", setActiveDot, { passive: true });
+    window.addEventListener("resize", setActiveDot);
+
+    setActiveDot();
+  });
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="LUCO Estudio, escuela de patronaje y confeccion en Granada."
+    />
+    <title>LUCO Estudio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles/base.css" />
+    <link rel="stylesheet" href="src/styles/components.css" />
+    <link rel="stylesheet" href="src/styles/sections.css" />
+  </head>
+  <body>
+    <header class="hero section-lines" id="inicio">
+      <button class="menu-toggle" aria-label="Abrir menu de navegacion" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="container hero__content">
+        <img
+          class="hero__logo"
+          src="Univero_Grafico_Luco/AC_Luco_Estudio_Marron.svg"
+          alt="Luco Estudio"
+        />
+        <p class="hero__lead">escuela de patronaje y confeccion</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="calma" aria-labelledby="calma-titulo">
+        <div class="container calma__layout">
+          <div>
+            <h1 class="section-title" id="calma-titulo">
+              calma entre telas,<br />
+              patrones y puntadas
+            </h1>
+          </div>
+
+          <div class="calma__body">
+            <img
+              class="calma__image"
+              src="luco_escaparate.png"
+              alt="Escaparate de Luco Estudio"
+            />
+            <p>
+              LUCO Estudio es un refugio creativo en Granada donde la costura se convierte en una
+              forma de disfrutar del presente. Un espacio para aprender y dar vida a tus propias
+              ideas en forma de costura, siempre a tu ritmo. Porque crear tambien es regalarte
+              tiempo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="servicios section-lines" id="servicios" aria-labelledby="servicios-titulo">
+        <div class="container">
+          <h2 class="section-title" id="servicios-titulo">servicios</h2>
+
+          <div class="carousel" data-carousel>
+            <div class="carousel__viewport" aria-live="polite">
+              <ul class="carousel__track">
+                <li class="service-card">
+                  <h3>Basic</h3>
+                  <p>
+                    Ideal para empezar desde cero en patronaje y confeccion con acompanamiento
+                    cercano y ritmo personalizado.
+                  </p>
+                  <p class="service-card__includes-title">Que incluye</p>
+                  <ul class="service-card__includes">
+                    <li>amor</li>
+                    <li>papel</li>
+                    <li>aprendizaje</li>
+                  </ul>
+                  <p class="service-card__price">40 EUR / mes</p>
+                </li>
+                <li class="service-card">
+                  <h3>Avanza</h3>
+                  <p>
+                    Perfecciona tecnicas, resuelve acabados y desarrolla prendas mas complejas con
+                    una metodologia clara y practica.
+                  </p>
+                </li>
+                <li class="service-card">
+                  <h3>Proyecto</h3>
+                  <p>
+                    Convierte una idea en una coleccion personal, desde el patron hasta la ultima
+                    puntada, con guia en cada etapa.
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="carousel__controls">
+              <button
+                class="carousel__arrow"
+                type="button"
+                data-carousel-prev
+                aria-label="Tarjeta anterior"
+              >
+                &#10094;
+              </button>
+              <div class="carousel__dots" data-carousel-dots aria-label="Navegacion carrusel"></div>
+              <button
+                class="carousel__arrow"
+                type="button"
+                data-carousel-next
+                aria-label="Tarjeta siguiente"
+              >
+                &#10095;
+              </button>
+            </div>
+          </div>
+
+          <p class="servicios__note">
+            Ademas, todos nuestros servicios son flexibles para adaptarse a tu momento creativo y
+            a tus objetivos.
+          </p>
+        </div>
+      </section>
+
+      <section class="horario" id="horario" aria-labelledby="horario-titulo">
+        <img
+          class="horario__decor horario__decor--top"
+          src="Univero_Grafico_Luco/AC_Luco_Isotipo_Cafe.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="horario__decor horario__decor--bottom"
+          src="Univero_Grafico_Luco/AC_Luco_Isotipo_Cafe.svg"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <div class="container horario__content">
+          <h2 class="section-title" id="horario-titulo">horario</h2>
+          <p class="horario__subtitle">de lunes a viernes</p>
+          <ul class="horario__list" aria-label="Horarios disponibles">
+            <li>10:00 - 11:30</li>
+            <li>11:30 - 13:00</li>
+            <li>17:00 - 18:30</li>
+            <li>18:30 - 20:00</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="galeria" aria-label="Galeria Luco">
+        <div class="marquee">
+          <div class="marquee__track">
+            <img class="marquee__image" src="luco_escaparate.png" alt="Galeria Luco 1" />
+            <img class="marquee__image" src="luco_escaparate.png" alt="Galeria Luco 2" />
+            <img class="marquee__image" src="luco_escaparate.png" alt="Galeria Luco 3" />
+            <img class="marquee__image" src="luco_escaparate.png" alt="Galeria Luco 4" />
+            <img class="marquee__image" src="luco_escaparate.png" alt="Galeria Luco 5" />
+
+            <img class="marquee__image" src="luco_escaparate.png" alt="" aria-hidden="true" />
+            <img class="marquee__image" src="luco_escaparate.png" alt="" aria-hidden="true" />
+            <img class="marquee__image" src="luco_escaparate.png" alt="" aria-hidden="true" />
+            <img class="marquee__image" src="luco_escaparate.png" alt="" aria-hidden="true" />
+            <img class="marquee__image" src="luco_escaparate.png" alt="" aria-hidden="true" />
+          </div>
+        </div>
+      </section>
+
+      <section class="dianna" id="dianna" aria-labelledby="dianna-titulo">
+        <div class="container dianna__layout">
+          <div class="dianna__copy">
+            <h2 class="section-title" id="dianna-titulo">dianna luco</h2>
+            <p class="dianna__role">tu profesora de costure-whealthness</p>
+            <p>
+              Que te acompanara y educara en todo tu proceso creativo dentro de Luco para que
+              disfrutes cada avance con seguridad.
+            </p>
+          </div>
+
+          <img class="dianna__image" src="woman_1.png" alt="Dianna Luco" />
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacto">
+      <div class="container footer__layout">
+        <img
+          class="footer__logo"
+          src="Univero_Grafico_Luco/AC_Luco_Descriptor_Marron.svg"
+          alt="Luco Estudio escuela de patronaje y confeccion"
+        />
+
+        <p class="footer__title">Encuentranos en...</p>
+        <a class="footer__link" href="tel:+34665236801">665 23 68 01</a>
+        <p>C/ Luis Braille 3, local 5. Granada 18005</p>
+
+        <div class="footer__map" aria-label="Mapa de ubicacion">
+          <iframe
+            title="Mapa Luco Estudio"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=C%2F%20Luis%20Braille%203%2C%20local%205%2C%20Granada%2018005&output=embed"
+          ></iframe>
+        </div>
+
+        <div class="footer__socials" aria-label="Redes sociales">
+          <a href="https://www.instagram.com/lucoestudio/" target="_blank" rel="noreferrer noopener">
+            @lucoestudio
+          </a>
+          <a href="https://maps.app.goo.gl/zYtwZ6RLikkmxBsQA" target="_blank" rel="noreferrer noopener">
+            Google Maps
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="src/scripts/main.js"></script>
+  </body>
+</html>
