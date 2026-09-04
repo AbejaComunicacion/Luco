@@ -21,9 +21,28 @@ html {
 
 body {
   font-family: "Alexandria", sans-serif;
+  font-weight: 200;
   background: var(--color-beige);
   color: var(--color-brown-dark);
   line-height: 1.45;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+span,
+button,
+input,
+textarea,
+select,
+label {
+  font-weight: 200;
 }
 
 img {
@@ -51,7 +70,7 @@ section {
 .section-title {
   font-size: clamp(1.85rem, 8vw, 3.2rem);
   line-height: 1.1;
-  font-weight: 500;
+  font-weight: 200;
   letter-spacing: 0.06em;
   text-transform: lowercase;
 }

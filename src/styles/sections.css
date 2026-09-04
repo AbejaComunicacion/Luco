@@ -15,15 +15,15 @@
 }
 
 .hero__logo {
-  width: min(88vw, 39rem);
+  width: min(100vw, 39rem);
 }
 
 .hero__lead {
   color: var(--color-brown-dark);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: lowercase;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 1.5rem;
 }
 
 .calma {
@@ -168,7 +168,7 @@
 .footer__link {
   font-size: 1.15rem;
   color: var(--color-brown-dark);
-  font-weight: 500;
+  font-weight: 200;
 }
 
 .footer__map iframe {

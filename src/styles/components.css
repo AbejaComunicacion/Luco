@@ -54,7 +54,7 @@
   font-size: 1.35rem;
   color: var(--color-brown);
   margin-bottom: 0.75rem;
-  font-weight: 600;
+  font-weight: 200;
 }
 
 .service-card p {
@@ -63,7 +63,7 @@
 
 .service-card__includes-title {
   margin-top: 1rem;
-  font-weight: 600;
+  font-weight: 200;
   color: var(--color-brown);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -81,7 +81,7 @@
 .service-card__price {
   margin-top: 0.95rem;
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 200;
   color: var(--color-brown-dark);
 }
 
