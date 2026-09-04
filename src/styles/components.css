@@ -101,7 +101,7 @@
   background: var(--color-beige);
   color: var(--color-brown-dark);
   border-radius: 2.2rem;
-  padding: 2.7rem 2.2rem;
+  padding: 2.7rem 4rem;
   box-shadow: none;
   text-align: left;
   display: grid;
@@ -109,26 +109,25 @@
 }
 
 .service-card h3 {
-  font-size: clamp(2.2rem, 7vw, 3rem);
+  font-size: clamp(3rem, 7vw, 3rem);
   letter-spacing: 0.14em;
-  color: var(--color-brown);
+  color: var(--color-brown-dark);
   margin-bottom: 1.6rem;
 }
 
 .service-card p {
-  font-size: 1.02rem;
   line-height: 1.35;
 }
 
 .service-card p + p {
-  margin-top: 1.45rem;
+  margin-top: 3rem;
 }
 
 .service-card__includes-title {
-  color: var(--color-brown);
+  color: var(--color-brown-dark);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 0.78rem;
+  font-size: 1.3rem;
   margin-top: 2.2rem;
 }
 
@@ -145,7 +144,7 @@
   margin-top: 2.4rem;
   font-size: clamp(2rem, 6.2vw, 2.6rem);
   letter-spacing: 0.1em;
-  color: var(--color-brown);
+  color: var(--color-brown-dark);
 }
 
 .carousel__controls {
