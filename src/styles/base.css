@@ -25,6 +25,8 @@ body {
   background: var(--color-beige);
   color: var(--color-brown-dark);
   line-height: 1.45;
+  text-align: center;
+  letter-spacing: 0.2em;
 }
 
 h1,
@@ -43,6 +45,10 @@ textarea,
 select,
 label {
   font-weight: 200;
+}
+
+p {
+  font-size: 1.1rem;
 }
 
 img {
@@ -68,10 +74,8 @@ section {
 }
 
 .section-title {
-  font-size: clamp(1.85rem, 8vw, 3.2rem);
   line-height: 1.1;
   font-weight: 200;
-  letter-spacing: 0.06em;
   text-transform: lowercase;
 }
 
