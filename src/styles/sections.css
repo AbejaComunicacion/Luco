@@ -11,7 +11,7 @@
   align-content: start;
   justify-items: center;
   gap: 1rem;
-  padding-top: 4.5rem;
+  padding-top: 7rem;
 }
 
 .hero__logo {
@@ -23,7 +23,8 @@
   letter-spacing: 0.1em;
   text-transform: lowercase;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  padding-inline: 3.1rem;
 }
 
 .calma {

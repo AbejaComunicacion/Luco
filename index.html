@@ -19,25 +19,40 @@
     <link rel="stylesheet" href="src/styles/sections.css" />
   </head>
   <body>
-    <header class="hero section-lines" id="inicio">
-      <button class="menu-toggle" aria-label="Abrir menu de navegacion" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <details class="site-nav">
+          <summary class="menu-toggle" aria-label="Abrir menu de navegacion">
+            <span></span>
+            <span></span>
+            <span></span>
+          </summary>
 
-      <div class="container hero__content">
-        <img
-          class="hero__logo"
-          src="Univero_Grafico_Luco/AC_Luco_Estudio_Marron.svg"
-          alt="Luco Estudio"
-        />
-        <p class="hero__lead">escuela de patronaje y confeccion</p>
+          <nav class="site-nav__panel" aria-label="Secciones principales">
+            <a href="#inicio">inicio</a>
+            <a href="#calma">calma</a>
+            <a href="#servicios">servicios</a>
+            <a href="#horario">horario</a>
+            <a href="#dianna">dianna</a>
+            <a href="#contacto">contacto</a>
+          </nav>
+        </details>
       </div>
     </header>
 
     <main>
-      <section class="calma" aria-labelledby="calma-titulo">
+      <section class="hero section-lines" id="inicio" aria-label="Presentacion Luco Estudio">
+        <div class="container hero__content">
+          <img
+            class="hero__logo"
+            src="Univero_Grafico_Luco/AC_Luco_Estudio_Marron.svg"
+            alt="Luco Estudio"
+          />
+          <p class="hero__lead">escuela de patronaje y confeccion</p>
+        </div>
+      </section>
+
+      <section class="calma" id="calma" aria-labelledby="calma-titulo">
         <div class="container calma__layout">
           <div>
             <h1 class="section-title" id="calma-titulo">

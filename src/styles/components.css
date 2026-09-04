@@ -1,6 +1,23 @@
+.site-header {
+  background: var(--color-beige);
+  padding-top: 0.9rem;
+  padding-bottom: 0.6rem;
+  position: relative;
+  z-index: 20;
+}
+
+.site-header__inner {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.site-nav {
+  position: relative;
+}
+
 .menu-toggle {
   margin-left: auto;
-  margin-right: 1rem;
+  margin-right: 0;
   width: 2.5rem;
   height: 2rem;
   border: 0;
@@ -8,12 +25,45 @@
   display: grid;
   gap: 0.32rem;
   align-content: center;
+  list-style: none;
+  cursor: pointer;
+}
+
+.menu-toggle::-webkit-details-marker {
+  display: none;
 }
 
 .menu-toggle span {
   display: block;
   height: 0.12rem;
   background: var(--color-brown-dark);
+}
+
+.site-nav__panel {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  min-width: 11rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(122, 66, 44, 0.2);
+  background: var(--color-beige);
+  box-shadow: var(--shadow-soft);
+  padding: 0.45rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.site-nav__panel a {
+  color: var(--color-brown-dark);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.45rem;
+}
+
+.site-nav__panel a:hover,
+.site-nav__panel a:focus-visible {
+  background: rgba(177, 114, 83, 0.14);
 }
 
 .carousel {
