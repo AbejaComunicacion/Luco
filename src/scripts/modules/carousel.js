@@ -1,15 +1,5 @@
 function getStepDistance(viewport) {
-  const firstCard = viewport.querySelector(".service-card");
-
-  if (!firstCard) {
-    return viewport.clientWidth;
-  }
-
-  const track = viewport.querySelector(".carousel__track");
-  const trackStyle = track ? getComputedStyle(track) : null;
-  const gap = parseFloat(trackStyle?.gap || "0");
-
-  return firstCard.getBoundingClientRect().width + gap;
+  return viewport.clientWidth;
 }
 
 function getActiveIndex(viewport, totalSlides) {
@@ -23,6 +13,8 @@ function getActiveIndex(viewport, totalSlides) {
 }
 
 function buildDots(container, totalSlides) {
+  container.innerHTML = "";
+
   const dots = [];
 
   for (let index = 0; index < totalSlides; index += 1) {
@@ -30,6 +22,7 @@ function buildDots(container, totalSlides) {
     dot.type = "button";
     dot.className = "carousel__dot";
     dot.setAttribute("aria-label", `Ir a tarjeta ${index + 1}`);
+    dot.setAttribute("aria-pressed", "false");
     dot.dataset.index = String(index);
     container.appendChild(dot);
     dots.push(dot);
@@ -44,11 +37,9 @@ export function initCarousel() {
   carousels.forEach((carouselElement) => {
     const viewport = carouselElement.querySelector(".carousel__viewport");
     const slides = carouselElement.querySelectorAll(".service-card");
-    const prevButton = carouselElement.querySelector("[data-carousel-prev]");
-    const nextButton = carouselElement.querySelector("[data-carousel-next]");
     const dotsContainer = carouselElement.querySelector("[data-carousel-dots]");
 
-    if (!viewport || !prevButton || !nextButton || !dotsContainer || slides.length === 0) {
+    if (!viewport || !dotsContainer || slides.length === 0) {
       return;
     }
 
@@ -57,7 +48,9 @@ export function initCarousel() {
     function setActiveDot() {
       const activeIndex = getActiveIndex(viewport, slides.length);
       dots.forEach((dot, dotIndex) => {
-        dot.classList.toggle("is-active", dotIndex === activeIndex);
+        const isActive = dotIndex === activeIndex;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-pressed", String(isActive));
       });
     }
 
@@ -65,16 +58,6 @@ export function initCarousel() {
       const step = getStepDistance(viewport);
       viewport.scrollTo({ left: index * step, behavior: "smooth" });
     }
-
-    prevButton.addEventListener("click", () => {
-      const currentIndex = getActiveIndex(viewport, slides.length);
-      goTo(Math.max(0, currentIndex - 1));
-    });
-
-    nextButton.addEventListener("click", () => {
-      const currentIndex = getActiveIndex(viewport, slides.length);
-      goTo(Math.min(slides.length - 1, currentIndex + 1));
-    });
 
     dots.forEach((dot) => {
       dot.addEventListener("click", () => {

@@ -116,23 +116,11 @@
             </div>
 
             <div class="carousel__controls">
-              <button
-                class="carousel__arrow"
-                type="button"
-                data-carousel-prev
-                aria-label="Tarjeta anterior"
-              >
-                &#10094;
-              </button>
-              <div class="carousel__dots" data-carousel-dots aria-label="Navegacion carrusel"></div>
-              <button
-                class="carousel__arrow"
-                type="button"
-                data-carousel-next
-                aria-label="Tarjeta siguiente"
-              >
-                &#10095;
-              </button>
+              <div class="carousel__dots" data-carousel-dots aria-label="Navegacion carrusel">
+                <button type="button" class="carousel__dot is-active" aria-label="Ir a tarjeta 1" aria-pressed="true" data-index="0"></button>
+                <button type="button" class="carousel__dot" aria-label="Ir a tarjeta 2" aria-pressed="false" data-index="1"></button>
+                <button type="button" class="carousel__dot" aria-label="Ir a tarjeta 3" aria-pressed="false" data-index="2"></button>
+              </div>
             </div>
           </div>
 
@@ -235,6 +223,6 @@
       </div>
     </footer>
 
-    <script type="module" src="src/scripts/main.js"></script>
+    <script defer src="src/scripts/main.js"></script>
   </body>
 </html>

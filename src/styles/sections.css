@@ -62,15 +62,20 @@
 }
 
 .servicios {
-  background: var(--color-cafe);
+  background: var(--color-brown);
   color: var(--color-beige);
-  padding: 2.9rem 0;
+  padding: 2.5rem 0;
+}
+
+.servicios h2 {
+  padding: 2rem 0;
+  font-size: 3rem;
+  letter-spacing: 0.2em;
 }
 
 .servicios__note {
-  margin-top: 1rem;
-  max-width: 46ch;
-  font-size: 0.95rem;
+  margin-top: 3rem;
+  max-width: 22ch;
 }
 
 .horario {
