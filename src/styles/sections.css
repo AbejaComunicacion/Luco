@@ -83,6 +83,9 @@
   position: relative;
   overflow: hidden;
   padding: 8rem 0;
+
+  justify-items: center;
+  display: grid;
 }
 
 .horario__decor {
@@ -107,6 +110,7 @@
 .horario__content {
   position: relative;
   z-index: 1;
+  margin: 2.5rem 0;
 }
 
 .horario__content .section-title {
