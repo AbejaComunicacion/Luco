@@ -67,7 +67,7 @@
 }
 
 .carousel {
-  --service-card-width: min(calc(100% - 1rem), 28rem);
+  --service-card-width: min(calc(100% - 2.25rem), 24rem);
   margin-top: 1.25rem;
 }
 
@@ -95,9 +95,9 @@
 .service-card {
   flex: 0 0 var(--service-card-width);
   width: var(--service-card-width);
-  max-width: 28rem;
-  aspect-ratio: 1 / 1.2;
-  min-height: 0;
+  max-width: 24rem;
+  aspect-ratio: 1 / 1.35;
+  min-height: 34rem;
   scroll-snap-align: center;
   background: var(--color-beige);
   color: var(--color-brown-dark);
@@ -219,13 +219,14 @@
 
 @media (min-width: 48rem) {
   .carousel {
-    --service-card-width: min(34rem, calc(100% - 1.5rem));
+    --service-card-width: min(30rem, calc(100% - 3rem));
   }
 
   .service-card {
     width: var(--service-card-width);
-    aspect-ratio: 1 / 1.12;
-    max-width: 34rem;
+    aspect-ratio: 1 / 1.28;
+    max-width: 30rem;
+    min-height: 34rem;
   }
 
   .marquee__image {
