@@ -3,12 +3,15 @@
   background: var(--color-beige);
   padding-top: 2.5rem;
   padding-bottom: 4.2rem;
+  display: grid;
+  align-items: center;
 }
 
 .hero__content {
-  min-height: calc(70svh - 3.25rem);
+  min-height: 0;
+  width: 100%;
   display: grid;
-  align-content: center;
+  place-content: center;
   justify-items: center;
   gap: 1rem;
   padding-top: 0;
@@ -303,7 +306,7 @@
   }
 
   .calma .container {
-    width: min(100% - 3rem, 82rem);
+    width: min(100% - 7rem, 76rem);
   }
 
   .calma__layout {
@@ -362,7 +365,12 @@
 
   .dianna {
     min-height: 36rem;
-    padding: 2rem 0 4.5rem 2rem;
+    padding: 2rem 0 4rem;
+  }
+
+  .dianna .container {
+    width: min(100% - 7rem, 76rem);
+    margin-inline: auto;
   }
 
   .dianna p {
@@ -383,65 +391,67 @@
   }
 
   .footer {
-    padding: 3rem 2.5rem 2rem;
+    padding: 4rem 2.5rem 3rem;
   }
 
   .footer__layout {
     width: 100%;
-    grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr) minmax(11rem, 18rem);
+    grid-template-columns: minmax(10rem, 16rem) minmax(0, 1fr) minmax(10rem, 16rem);
     grid-template-areas:
       "logo title map"
-      "logo phone map"
-      "logo address map"
-      "logo socials map";
+      "socials phone map"
+      "socials address map"
+      "socials . map";
     column-gap: clamp(0.85rem, 1.8vw, 2rem);
-    row-gap: 0.75rem;
+    row-gap: 0.35rem;
     align-items: start;
   }
 
   .footer__logo {
     grid-area: logo;
-    justify-self: start;
-    width: min(16rem, 100%);
+    justify-self: center;
+    width: min(17.5rem, 100%);
   }
 
   .footer__title {
     grid-area: title;
-    justify-self: center;
-    width: min(100%, 22rem);
-    text-align: center;
+    text-align: left;
   }
 
   .footer__link {
     grid-area: phone;
-    justify-self: center;
-    width: min(100%, 22rem);
-    text-align: center;
+    text-align: left;
   }
 
   .footer__layout > p:not(.footer__title) {
     grid-area: address;
+    text-align: left;
+  }
+
+  .footer__layout > .footer__title,
+  .footer__layout > .footer__link,
+  .footer__layout > p:not(.footer__title),
+  .footer__layout > .footer__socials {
     justify-self: center;
     width: min(100%, 22rem);
-    text-align: center;
   }
 
   .footer__map {
     grid-area: map;
-    width: 100%;
+    width: min(100%, 18rem);
     justify-self: end;
     margin: 0;
   }
 
   .footer__socials {
     grid-area: socials;
-    width: min(100%, 22rem);
     justify-self: center;
+    width: min(100%, 15rem);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 0.55rem;
-    margin-top: 0.6rem;
+    margin-top: 0.45rem;
   }
 
   .footer__social-handle {
@@ -454,6 +464,11 @@
 }
 
 @media (min-width: 64rem) {
+  .calma .container,
+  .dianna .container {
+    width: min(100% - 12rem, 66rem);
+  }
+
   .dianna {
     min-height: 40rem;
   }
@@ -532,18 +547,18 @@
   }
 
   .footer {
-    padding: 3.4rem 3rem 2.4rem;
+    padding: 4.2rem 3rem 3.1rem;
   }
 
   .footer__layout {
     width: min(100%, 110rem);
-    grid-template-columns: minmax(14rem, 22rem) minmax(22rem, 1fr) minmax(20rem, 32rem);
+    grid-template-columns: minmax(16rem, 24rem) minmax(22rem, 1fr) minmax(16rem, 24rem);
     column-gap: 3rem;
-    row-gap: 0.9rem;
+    row-gap: 0.5rem;
   }
 
   .footer__logo {
-    width: min(20rem, 100%);
+    width: min(21.5rem, 100%);
   }
 
   .footer__title {
@@ -575,24 +590,24 @@
 
 @media (min-width: 48rem) and (max-width: 63.99rem) {
   .footer {
-    padding: 2.4rem 1.5rem 1.8rem;
+    padding: 3rem 1.5rem 2.3rem;
   }
 
   .footer__layout {
     width: 100%;
-    grid-template-columns: minmax(6.5rem, 9rem) minmax(0, 1fr) minmax(9.75rem, 12.5rem);
+    grid-template-columns: minmax(7.5rem, 10.5rem) minmax(0, 1fr) minmax(7.5rem, 10.5rem);
     column-gap: 1rem;
-    row-gap: 0.55rem;
+    row-gap: 0.35rem;
   }
 
   .footer__logo {
-    width: min(9.25rem, 100%);
+    width: min(10.5rem, 100%);
   }
 
   .footer__map {
     width: 100%;
-    max-width: 12.5rem;
-    justify-self: end;
+    max-width: 10.5rem;
+    justify-self: center;
   }
 
   .footer__map iframe {
@@ -600,7 +615,8 @@
   }
 
   .footer__socials {
-    width: min(100%, 19rem);
+    width: min(100%, 10.5rem);
+    justify-self: center;
     margin-top: 0.4rem;
   }
 
@@ -691,33 +707,33 @@
     grid-template-columns: 1fr;
     align-items: start;
     justify-items: center;
-    gap: 1.2rem;
+    gap: 0.8rem;
   }
 
   .calma__body {
-    grid-template-columns: minmax(11rem, 14rem) minmax(0, 1fr);
+    grid-template-columns: 1fr;
     align-items: center;
-    justify-items: stretch;
-    gap: 1.15rem;
+    justify-items: center;
+    gap: 0.8rem;
   }
 
   .calma__image {
-    width: 100%;
+    width: min(100%, 12rem);
     margin-top: 0;
     margin-bottom: 0;
   }
 
   .calma h2 {
-    font-size: 1.55rem;
-    max-width: 28ch;
+    font-size: 1.35rem;
+    max-width: 24ch;
     text-align: center;
   }
 
   .calma p {
-    font-size: 0.98rem;
-    max-width: none;
-    margin-inline: 0;
-    text-align: left;
+    font-size: 0.9rem;
+    max-width: 36ch;
+    margin-inline: auto;
+    text-align: center;
   }
 
   .servicios {
@@ -780,14 +796,14 @@
 
   .footer {
     margin-top: -2.2rem;
-    padding: 1.5rem 1.2rem 1rem;
+    padding: 2.1rem 1.2rem 1.5rem;
   }
 
   .footer__layout {
     width: 100%;
-    grid-template-columns: minmax(7rem, 10.5rem) minmax(12rem, 1fr) minmax(9.5rem, 13rem);
+    grid-template-columns: minmax(7rem, 10.5rem) minmax(12rem, 1fr) minmax(7rem, 10.5rem);
     column-gap: 0.9rem;
-    row-gap: 0.4rem;
+    row-gap: 0.28rem;
   }
 
   .footer__logo {
@@ -809,6 +825,10 @@
 
   .footer__map iframe {
     height: 7.8rem;
+  }
+
+  .footer__map {
+    justify-self: center;
   }
 
   .footer__social-handle {
@@ -861,6 +881,13 @@
   .footer__layout {
     width: min(100%, 84rem);
     grid-template-columns: minmax(10rem, 16rem) minmax(22rem, 1fr) minmax(14rem, 22rem);
+  }
+
+  .footer__layout > .footer__title,
+  .footer__layout > .footer__link,
+  .footer__layout > p:not(.footer__title),
+  .footer__layout > .footer__socials {
+    width: min(100%, 25rem);
   }
 
   .footer__map iframe {
