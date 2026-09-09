@@ -188,6 +188,17 @@
   border-color: var(--color-beige);
 }
 
+@media (max-width: 27rem) {
+  .carousel {
+    --service-card-width: min(calc(100% - 3.75rem), 20.5rem);
+  }
+
+  .service-card {
+    max-width: 20.5rem;
+    min-height: 36rem;
+  }
+}
+
 .marquee {
   overflow: hidden;
 }
@@ -201,8 +212,8 @@
 }
 
 .marquee__image {
-  flex: 0 0 15rem;
-  height: 18rem;
+    flex: 0 0 17rem;
+  height: 20rem;
   object-fit: cover;
   border-radius: 0.6rem;
 }
@@ -230,7 +241,7 @@
   }
 
   .marquee__image {
-    flex: 0 0 22rem;
-    height: 13rem;
+    flex: 0 0 27rem;
+    height: 17rem;
   }
 }
