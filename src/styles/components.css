@@ -245,3 +245,55 @@
     height: 17rem;
   }
 }
+
+@media (min-width: 64rem) and (max-height: 46rem) {
+  .carousel {
+    --service-card-width: min(22rem, calc(100% - 8rem));
+    margin-top: 0.7rem;
+  }
+
+  .carousel__track {
+    gap: 1.3rem;
+    padding-bottom: 0.1rem;
+  }
+
+  .service-card {
+    width: var(--service-card-width);
+    max-width: 22rem;
+    min-height: 24rem;
+    aspect-ratio: 1 / 1.05;
+    padding: 1.4rem 1.5rem;
+  }
+
+  .service-card h3 {
+    font-size: 2.15rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+  }
+
+  .service-card p + p {
+    margin-top: 1.4rem;
+  }
+
+  .service-card__includes-title {
+    margin-top: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .service-card__includes {
+    margin-top: 0.6rem;
+    font-size: 0.72rem;
+  }
+
+  .service-card__price {
+    margin-top: 1.2rem;
+    font-size: 1.65rem;
+  }
+
+  .carousel__controls {
+    margin-top: 0.85rem;
+  }
+}
