@@ -1,8 +1,8 @@
 .hero {
   min-height: 70svh;
   background: var(--color-beige);
-  padding-top: 1.25rem;
-  padding-bottom: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 4.2rem;
 }
 
 .hero__content {
@@ -82,7 +82,7 @@
   background: var(--color-beige);
   position: relative;
   overflow: hidden;
-  padding: 3rem 0;
+  padding: 8rem 0;
 }
 
 .horario__decor {
@@ -93,14 +93,15 @@
 }
 
 .horario__decor--top {
-  top: -1rem;
-  left: -1rem;
+  top: 2rem;
+  left: 1rem;
+  transform: rotate(90deg);
 }
 
 .horario__decor--bottom {
-  bottom: -1rem;
-  right: -1rem;
-  transform: rotate(180deg);
+  bottom: 2rem;
+  right: 1rem;
+  transform: rotate(270deg);
 }
 
 .horario__content {
@@ -108,19 +109,25 @@
   z-index: 1;
 }
 
+.horario__content .section-title {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
 .horario__subtitle {
   margin-top: 0.9rem;
-  margin-bottom: 1.1rem;
-  color: var(--color-brown);
-  font-size: 1.05rem;
+  margin-bottom: 1.7rem;
+  color: var(--color-brown-dark);
+  font-size: 1.7rem;
 }
 
 .horario__list {
   list-style: none;
   display: grid;
-  gap: 0.35rem;
+  gap: 1.35rem;
   color: var(--color-brown-dark);
-  font-size: 1rem;
+  font-size: 1.7rem;
 }
 
 .galeria {
