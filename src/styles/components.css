@@ -194,14 +194,15 @@
 
 .marquee__track {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   width: max-content;
   animation: luco-marquee 32s linear infinite;
+  margin: 2.5rem 0;
 }
 
 .marquee__image {
   flex: 0 0 15rem;
-  height: 7rem;
+  height: 18rem;
   object-fit: cover;
   border-radius: 0.6rem;
 }
@@ -229,6 +230,6 @@
 
   .marquee__image {
     flex: 0 0 22rem;
-    height: 10rem;
+    height: 13rem;
   }
 }
