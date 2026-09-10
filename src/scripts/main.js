@@ -3,16 +3,14 @@ function getActiveIndex(viewport, slides) {
     return 0;
   }
 
-  const viewportRect = viewport.getBoundingClientRect();
-  const viewportCenter = viewportRect.left + viewportRect.width / 2;
+  const currentScroll = viewport.scrollLeft;
 
   let closestIndex = 0;
   let closestDistance = Number.POSITIVE_INFINITY;
 
   slides.forEach((slide, index) => {
-    const slideRect = slide.getBoundingClientRect();
-    const slideCenter = slideRect.left + slideRect.width / 2;
-    const distance = Math.abs(slideCenter - viewportCenter);
+    const targetLeft = getSlideTargetLeft(viewport, slide);
+    const distance = Math.abs(targetLeft - currentScroll);
 
     if (distance < closestDistance) {
       closestDistance = distance;
@@ -21,6 +19,15 @@ function getActiveIndex(viewport, slides) {
   });
 
   return closestIndex;
+}
+
+function getSlideTargetLeft(viewport, slide) {
+  const maxScrollLeft = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+  const viewportRect = viewport.getBoundingClientRect();
+  const slideRect = slide.getBoundingClientRect();
+  const delta = slideRect.left - viewportRect.left;
+  const centeredOffset = (viewportRect.width - slideRect.width) / 2;
+  return Math.min(maxScrollLeft, Math.max(0, viewport.scrollLeft + delta - centeredOffset));
 }
 
 function createDots(container, totalSlides) {
@@ -46,37 +53,54 @@ function initCarousel() {
 
   carousels.forEach((carouselElement) => {
     const viewport = carouselElement.querySelector(".carousel__viewport");
-    const slides = carouselElement.querySelectorAll(".service-card");
+    const slideList = Array.from(carouselElement.querySelectorAll(".service-card"));
     const dotsContainer = carouselElement.querySelector("[data-carousel-dots]");
+    const prevButton = carouselElement.querySelector("[data-carousel-prev]");
+    const nextButton = carouselElement.querySelector("[data-carousel-next]");
 
-    if (!viewport || !dotsContainer || slides.length === 0) {
+    if (!viewport || !dotsContainer || slideList.length === 0) {
       return;
     }
 
     let dots = getDots(dotsContainer);
 
-    if (dots.length !== slides.length) {
-      createDots(dotsContainer, slides.length);
+    if (dots.length !== slideList.length) {
+      createDots(dotsContainer, slideList.length);
       dots = getDots(dotsContainer);
     }
 
+    function setArrowState(activeIndex) {
+      if (prevButton) {
+        const isAtStart = activeIndex <= 0;
+        prevButton.disabled = isAtStart;
+        prevButton.setAttribute("aria-disabled", String(isAtStart));
+      }
+
+      if (nextButton) {
+        const isAtEnd = activeIndex >= slideList.length - 1;
+        nextButton.disabled = isAtEnd;
+        nextButton.setAttribute("aria-disabled", String(isAtEnd));
+      }
+    }
+
     function setActiveDot() {
-      const activeIndex = getActiveIndex(viewport, Array.from(slides));
+      const activeIndex = getActiveIndex(viewport, slideList);
       dots.forEach((dot, dotIndex) => {
         const isActive = dotIndex === activeIndex;
         dot.classList.toggle("is-active", isActive);
         dot.setAttribute("aria-pressed", String(isActive));
       });
+      setArrowState(activeIndex);
     }
 
     function goTo(index) {
-      const targetSlide = slides[index];
+      const targetSlide = slideList[index];
 
       if (!targetSlide) {
         return;
       }
 
-      targetSlide.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      viewport.scrollTo({ left: getSlideTargetLeft(viewport, targetSlide), behavior: "smooth" });
     }
 
     dots.forEach((dot) => {
@@ -88,6 +112,20 @@ function initCarousel() {
         goTo(index);
       });
     });
+
+    if (prevButton) {
+      prevButton.addEventListener("click", () => {
+        const activeIndex = getActiveIndex(viewport, slideList);
+        goTo(Math.max(0, activeIndex - 1));
+      });
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener("click", () => {
+        const activeIndex = getActiveIndex(viewport, slideList);
+        goTo(Math.min(slideList.length - 1, activeIndex + 1));
+      });
+    }
 
     viewport.addEventListener("scroll", setActiveDot, { passive: true });
     window.addEventListener("resize", setActiveDot);
