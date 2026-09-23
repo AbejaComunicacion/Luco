@@ -14,6 +14,9 @@ Este formato es el mejor punto de partida para el estado actual porque:
 
 ```text
 .
+|-- images
+|   |-- fotos
+|   `-- Univero_Grafico_Luco
 |-- index.html
 |-- README.md
 `-- src
@@ -28,9 +31,9 @@ Este formato es el mejor punto de partida para el estado actual porque:
 ```
 
 ## Recursos usados
-- Carpeta de marca: `Univero_Grafico_Luco/`
-- Imagen escaparate: `luco_escaparate.png`
-- Imagen retrato: `woman_1.png`
+- Carpeta de marca: `images/Univero_Grafico_Luco/`
+- Imagen escaparate: `images/fotos/luco_escaparate.png`
+- Imagen retrato: `images/fotos/woman_1.png`
 
 ## Escalabilidad futura (sin implementar aun)
 - Crear carpeta `src/features/` para modulos por dominio (publico, academia, perfil, etc.).

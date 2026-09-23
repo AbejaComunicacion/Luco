@@ -91,7 +91,7 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../../Univero_Grafico_Luco/AC_Luco_Lineas.png");
+  background-image: url("../../images/Univero_Grafico_Luco/AC_Luco_Lineas.png");
   background-size: 22rem;
   background-repeat: repeat;
   opacity: 0.19;

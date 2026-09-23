@@ -67,7 +67,7 @@
 }
 
 .carousel {
-  --service-card-width: min(calc(100% - 2.25rem), 24rem);
+  --service-card-width: min(calc(100% - 1.6rem), 24.5rem);
   margin-top: 1.25rem;
 }
 
@@ -100,17 +100,18 @@
 .service-card {
   flex: 0 0 var(--service-card-width);
   width: var(--service-card-width);
-  max-width: 24rem;
-  aspect-ratio: 1 / 1.35;
-  min-height: 34rem;
+  max-width: 24.5rem;
+  aspect-ratio: 1 / 1.28;
+  min-height: 31rem;
   scroll-snap-align: center;
   background: var(--color-beige);
   color: var(--color-brown-dark);
   border-radius: 2.2rem;
-  padding: 2.2rem 2.4rem;
+  padding: 5rem 2.5rem;
   box-shadow: none;
   text-align: left;
   display: grid;
+  grid-template-rows: auto 1fr;
   align-content: start;
   overflow: hidden;
 }
@@ -125,10 +126,11 @@
 }
 
 .service-card h3 {
-  font-size: clamp(3rem, 7vw, 3rem);
-  letter-spacing: 0.14em;
+  font-size: 2.7rem;
+  letter-spacing: 0.09em;
+  text-align: left;
   color: var(--color-brown-dark);
-  margin-bottom: 1.6rem;
+  margin-bottom: 0.9rem;
 }
 
 .service-card p {
@@ -148,12 +150,37 @@
 }
 
 .service-card__includes {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   list-style: none;
   display: grid;
-  gap: 0.35rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  gap: 2.35rem;
+  font-size: clamp(1.25rem, 3.7vw, 1.7rem);
+  letter-spacing: 0.05em;
+  line-height: 1.25;
+  text-align: left;
+  align-self: start;
+  justify-self: start;
+  width: 100%;
+}
+
+.service-card__includes--primary {
+  margin-top: 0;
+  font-size: clamp(1.35rem, 4vw, 1.8rem);
+  gap: 2.35rem;
+}
+
+.service-card--primary {
+  display: flex;
+  align-items: center;
+}
+
+.service-card--primary .service-card__includes--primary {
+  align-self: center;
+  justify-self: stretch;
+}
+
+.service-card:not(.service-card--primary) .service-card__includes {
+  align-self: center;
 }
 
 .service-card__price {
@@ -216,12 +243,12 @@
 
 @media (max-width: 27rem) {
   .carousel {
-    --service-card-width: min(calc(100% - 3.75rem), 20.5rem);
+    --service-card-width: min(calc(100% - 2.75rem), 22rem);
   }
 
   .service-card {
-    max-width: 20.5rem;
-    min-height: 36rem;
+    max-width: 22rem;
+    min-height: 28rem;
   }
 }
 
@@ -230,16 +257,18 @@
 }
 
 .marquee__track {
+  --marquee-gap: 1.5rem;
   display: flex;
-  gap: 1.5rem;
+  gap: var(--marquee-gap);
   width: max-content;
-  animation: luco-marquee 32s linear infinite;
+  animation: luco-marquee 42s linear infinite;
+  will-change: transform;
   margin: 2.5rem 0;
 }
 
 .marquee__image {
-    flex: 0 0 17rem;
-  height: 20rem;
+  flex: 0 0 15rem;
+  height: 24rem;
   object-fit: cover;
   border-radius: 0.6rem;
 }
@@ -250,31 +279,31 @@
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - (var(--marquee-gap) / 2)));
   }
 }
 
 @media (min-width: 48rem) {
   .carousel {
-    --service-card-width: min(30rem, calc(100% - 3rem));
+    --service-card-width: min(30rem, calc(100% - 2.2rem));
   }
 
   .service-card {
     width: var(--service-card-width);
-    aspect-ratio: 1 / 1.28;
+    aspect-ratio: 1 / 1.25;
     max-width: 30rem;
-    min-height: 34rem;
+    min-height: 33rem;
   }
 
   .marquee__image {
-    flex: 0 0 27rem;
-    height: 17rem;
+    flex: 0 0 20rem;
+    height: 30rem;
   }
 }
 
 @media (min-width: 64rem) {
   .carousel {
-    --service-card-width: min(26rem, calc((100% - 4.5rem) / 2.2));
+    --service-card-width: min(28rem, calc((100% - 4.5rem) / 2));
   }
 
   .carousel__stage {
@@ -309,7 +338,7 @@
     max-width: 22rem;
     min-height: 24rem;
     aspect-ratio: 1 / 1.05;
-    padding: 1.4rem 1.5rem;
+    padding: 2.4rem 1.9rem;
   }
 
   .service-card h3 {
@@ -332,7 +361,7 @@
 
   .service-card__includes {
     margin-top: 0.6rem;
-    font-size: 0.72rem;
+    font-size: 1.2rem;
   }
 
   .service-card__price {
