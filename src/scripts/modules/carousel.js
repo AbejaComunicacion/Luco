@@ -38,6 +38,8 @@ export function initCarousel() {
     const viewport = carouselElement.querySelector(".carousel__viewport");
     const slides = carouselElement.querySelectorAll(".service-card");
     const dotsContainer = carouselElement.querySelector("[data-carousel-dots]");
+    const previousButton = carouselElement.querySelector("[data-carousel-prev]");
+    const nextButton = carouselElement.querySelector("[data-carousel-next]");
 
     if (!viewport || !dotsContainer || slides.length === 0) {
       return;
@@ -58,6 +60,15 @@ export function initCarousel() {
       const step = getStepDistance(viewport);
       viewport.scrollTo({ left: index * step, behavior: "smooth" });
     }
+
+    function moveBy(offset) {
+      const activeIndex = getActiveIndex(viewport, slides.length);
+      const nextIndex = Math.max(0, Math.min(slides.length - 1, activeIndex + offset));
+      goTo(nextIndex);
+    }
+
+    previousButton?.addEventListener("click", () => moveBy(-1));
+    nextButton?.addEventListener("click", () => moveBy(1));
 
     dots.forEach((dot) => {
       dot.addEventListener("click", () => {

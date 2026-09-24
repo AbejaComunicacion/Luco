@@ -9,7 +9,8 @@
 
 .hero__content {
   min-height: 0;
-  width: 100%;
+  width: min(100% - 2rem, var(--max-width));
+  background: var(--color-beige);
   display: grid;
   place-content: center;
   justify-items: center;
