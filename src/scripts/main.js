@@ -50,6 +50,9 @@ function getDots(container) {
 
 function initCarousel() {
   const carousels = document.querySelectorAll("[data-carousel]");
+  const wideControlsQuery = window.matchMedia(
+    "(min-width: 719px) and (max-width: 1919.84px) and (max-height: 800px)",
+  );
 
   carousels.forEach((carouselElement) => {
     const viewport = carouselElement.querySelector(".carousel__viewport");
@@ -60,6 +63,10 @@ function initCarousel() {
 
     if (!viewport || !dotsContainer || slideList.length === 0) {
       return;
+    }
+
+    function syncWideControls() {
+      carouselElement.classList.toggle("carousel--wide-controls", wideControlsQuery.matches);
     }
 
     let dots = getDots(dotsContainer);
@@ -129,11 +136,141 @@ function initCarousel() {
 
     viewport.addEventListener("scroll", setActiveDot, { passive: true });
     window.addEventListener("resize", setActiveDot);
+    wideControlsQuery.addEventListener("change", syncWideControls);
 
+    syncWideControls();
     setActiveDot();
   });
 }
 
+function initSiteNav() {
+  const siteNav = document.querySelector(".site-nav");
+  const menuLinks = siteNav?.querySelectorAll(".site-nav__panel a");
+
+  if (!siteNav) {
+    return;
+  }
+
+  const desktopQuery = window.matchMedia("(min-width: 48rem)");
+
+  function syncMenuMode() {
+    siteNav.open = desktopQuery.matches;
+  }
+
+  function closeMenu(event) {
+    if (!desktopQuery.matches && !siteNav.contains(event.target)) {
+      siteNav.removeAttribute("open");
+    }
+  }
+
+  menuLinks?.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (!desktopQuery.matches) {
+        siteNav.removeAttribute("open");
+      }
+    });
+  });
+
+  syncMenuMode();
+  desktopQuery.addEventListener("change", syncMenuMode);
+  document.addEventListener("click", closeMenu);
+}
+
+function initGallery() {
+  const track = document.querySelector("[data-gallery-track]");
+  const dialog = document.querySelector("[data-gallery-dialog]");
+  const dialogImage = dialog?.querySelector("[data-gallery-image]");
+  const counter = dialog?.querySelector("[data-gallery-counter]");
+  const closeButton = dialog?.querySelector("[data-gallery-close]");
+  const previousButton = dialog?.querySelector("[data-gallery-prev]");
+  const nextButton = dialog?.querySelector("[data-gallery-next]");
+
+  if (!track || !dialog || !dialogImage || !counter) {
+    return;
+  }
+
+  const imageSources = [
+    ...Array.from({ length: 22 }, (_, index) => {
+      const imageNumber = String(index + 1).padStart(2, "0");
+      return `images/fotos/AC_Luco_SF_Content_${imageNumber}.png`;
+    }),
+    ...Array.from({ length: 4 }, (_, index) => {
+      const imageNumber = String(index + 23).padStart(2, "0");
+      return `images/fotos/AC_Luco_SF_Educacion_${imageNumber}.png`;
+    }),
+    "images/fotos/AC_Luco_SF_Content_27.png",
+    "images/fotos/AC_Luco_SF_Content_28.png",
+  ];
+  let activeIndex = 0;
+
+  imageSources.forEach((source, index) => {
+    const image = document.createElement("img");
+    image.className = "marquee__image";
+    image.src = source;
+    image.alt = `Galeria Luco imagen ${index + 1}`;
+    image.dataset.galleryIndex = String(index);
+    track.appendChild(image);
+  });
+
+  imageSources.forEach((source) => {
+    const image = document.createElement("img");
+    image.className = "marquee__image";
+    image.src = source;
+    image.alt = "";
+    image.setAttribute("aria-hidden", "true");
+    track.appendChild(image);
+  });
+
+  function showImage(index) {
+    activeIndex = (index + imageSources.length) % imageSources.length;
+    dialogImage.src = imageSources[activeIndex];
+    dialogImage.alt = `Galeria Luco imagen ${activeIndex + 1}`;
+    counter.textContent = `${activeIndex + 1} / ${imageSources.length}`;
+  }
+
+  function openGallery(index) {
+    showImage(index);
+    dialog.showModal();
+    document.body.classList.add("gallery-is-open");
+  }
+
+  function closeGallery() {
+    dialog.close();
+    document.body.classList.remove("gallery-is-open");
+  }
+
+  track.addEventListener("click", (event) => {
+    const image = event.target.closest("[data-gallery-index]");
+    if (image) {
+      openGallery(Number(image.dataset.galleryIndex));
+    }
+  });
+
+  closeButton.addEventListener("click", closeGallery);
+  previousButton.addEventListener("click", () => showImage(activeIndex - 1));
+  nextButton.addEventListener("click", () => showImage(activeIndex + 1));
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      closeGallery();
+    }
+  });
+
+  dialog.addEventListener("close", () => {
+    document.body.classList.remove("gallery-is-open");
+  });
+
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      showImage(activeIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      showImage(activeIndex + 1);
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initSiteNav();
   initCarousel();
+  initGallery();
 });

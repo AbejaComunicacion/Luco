@@ -40,7 +40,7 @@
           <nav class="site-nav__panel" aria-label="Secciones principales">
             <a href="#inicio">inicio</a>
             <a href="#calma">calma</a>
-            <a href="#servicios">informacion</a>
+            <a href="#servicios">información</a>
             <a href="#horario">horario</a>
             <a href="#dianna">dianna</a>
             <a href="#contacto">contacto</a>
@@ -73,7 +73,7 @@
           <div class="calma__body">
             <img
               class="calma__image"
-              src="images/fotos/luco_escaparate.png"
+              src="images/fotos/AC_Luco_SF_Content_11.png"
               alt="Escaparate de Luco Estudio"
             />
             <p>
@@ -88,7 +88,7 @@
 
       <section class="servicios section-lines" id="servicios" aria-labelledby="servicios-titulo">
         <div class="container">
-          <h2 class="section-title" id="servicios-titulo">informacion</h2>
+          <h2 class="section-title" id="servicios-titulo">información</h2>
 
           <div class="carousel" data-carousel>
             <div class="carousel__stage">
@@ -130,7 +130,7 @@
                   <li class="service-card">
                     <h3>Encuentranos</h3>
                     <ul class="service-card__includes">
-                      <li><a href="tel:+34665236801">665236801</a></li>
+                      <li><a href="tel:+34665236801">665 23 68 01</a></li>
                       <li>
                         <a href="https://maps.app.goo.gl/qaJvnfkziLdE61SZ6" target="_blank" rel="noreferrer noopener">
                           C/Luis de Braille 3, <br /> local 5 <br /> Granada
@@ -161,7 +161,7 @@
           </div>
 
           <p class="servicios__note">
-            Informacion clave para que elijas tu ritmo de aprendizaje en Luco Estudio.
+            Información clave para que elijas tu ritmo de aprendizaje en Luco Estudio.
           </p>
         </div>
       </section>
@@ -196,44 +196,39 @@
 
       <section class="galeria" aria-label="Galeria Luco">
         <div class="marquee">
-          <div class="marquee__track">
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Content_03.png" alt="Galeria Luco patronaje 3" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Content_04.png" alt="Galeria Luco patronaje 4" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Content_06.png" alt="Galeria Luco patronaje 5" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_01.png" alt="Galeria Luco educacion 1" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Texturas_01.png" alt="Galeria Luco textura textil" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_04.png" alt="Galeria Luco educacion 4" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_06.png" alt="Galeria Luco educacion 6" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_10.png" alt="Galeria Luco educacion 10" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_05.png" alt="Galeria Luco educacion 5" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Content_08.png" alt="Galeria Luco patronaje 8" />
-
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Content_03.png" alt="" aria-hidden="true" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Content_04.png" alt="" aria-hidden="true" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Content_06.png" alt="" aria-hidden="true" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_01.png" alt="" aria-hidden="true" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Texturas_01.png" alt="" aria-hidden="true" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_04.png" alt="" aria-hidden="true" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_06.png" alt="" aria-hidden="true" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_10.png" alt="" aria-hidden="true" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Educacion_05.png" alt="" aria-hidden="true" />
-            <img class="marquee__image" src="images/fotos/AC_Luco_SF_Content_08.png" alt="" aria-hidden="true" />
-          </div>
+          <div class="marquee__track" data-gallery-track></div>
         </div>
       </section>
+
+      <dialog class="gallery-dialog" data-gallery-dialog aria-labelledby="gallery-dialog-title">
+        <div class="gallery-dialog__panel">
+          <h2 class="gallery-dialog__title" id="gallery-dialog-title">Galeria Luco</h2>
+          <button class="gallery-dialog__close" type="button" data-gallery-close aria-label="Cerrar galeria">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <button class="gallery-dialog__arrow gallery-dialog__arrow--prev" type="button" data-gallery-prev aria-label="Imagen anterior">
+            <span aria-hidden="true">&#8249;</span>
+          </button>
+          <img class="gallery-dialog__image" data-gallery-image alt="" />
+          <button class="gallery-dialog__arrow gallery-dialog__arrow--next" type="button" data-gallery-next aria-label="Imagen siguiente">
+            <span aria-hidden="true">&#8250;</span>
+          </button>
+          <p class="gallery-dialog__counter" data-gallery-counter aria-live="polite"></p>
+        </div>
+      </dialog>
 
       <section class="dianna" id="dianna" aria-labelledby="dianna-titulo">
         <div class="container dianna__layout">
           <div class="dianna__copy">
-            <h2 class="section-title" id="dianna-titulo">dianna luco</h2>
-            <p class="dianna__role">directora y fundadora | dianna luco</p>
+            <h2 class="section-title" id="dianna-titulo">Dianna Luco</h2>
+            <p class="dianna__role">directora y fundadora</p><br>
             <p class="dianna__description">
               Diana Luco, directora de escuela de patronaje en Granada, te acompanara en todo tu
               proceso creativo para que aprendas patronaje y confeccion con confianza.
             </p>
           </div>
 
-          <img class="dianna__image" src="images/fotos/woman_1.png" alt="Dianna Luco" />
+          <img class="dianna__image" src="images/fotos/AC_Luco_SF_Dianna_06.png" alt="Dianna Luco" />
         </div>
       </section>
     </main>

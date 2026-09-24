@@ -50,6 +50,8 @@
 
 .calma__image {
   width: min(100%, 20rem);
+  aspect-ratio: 1;
+  object-fit: cover;
   margin-inline: auto;
   border-radius: 0.35rem;
   border: 1px solid rgba(248, 230, 216, 0.25);
@@ -161,8 +163,9 @@
 
 .dianna .section-title {
   font-size: 3.3rem;
-  padding: 3rem 4rem;
+  padding: 4.5rem 4rem 3rem;
   transform: translateY(1.5rem);
+  text-transform: none;
 }
 
 .dianna__layout {
@@ -191,7 +194,16 @@
   max-width: none;
   margin-left: 0;
   margin-right: 0;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   transform: translateY(3rem);
+}
+
+@media (max-width: 767.84px) {
+  .dianna__image {
+    margin-top: 6rem;
+    margin-bottom: -3rem;
+    transform: none;
+  }
 }
 
 .footer {
@@ -290,7 +302,11 @@
   stroke-linejoin: round;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
+  .hero__lead {
+    font-size: 1.8rem;
+  }
+
   .footer .container {
     width: min(100% - 2.5rem, 120rem);
   }
@@ -345,6 +361,19 @@
     text-align: center;
   }
 
+  .servicios h2 {
+    font-size: 3.4rem;
+  }
+
+  .servicios__note {
+    font-size: 1.25rem;
+  }
+
+  .horario__subtitle,
+  .horario__list {
+    font-size: 1.9rem;
+  }
+
   .calma__image {
     margin-top: 1rem;
     margin-bottom: 1.4rem;
@@ -378,6 +407,10 @@
     margin-inline: auto;
   }
 
+  .dianna__copy {
+    padding-top: 2rem;
+  }
+
   .dianna p {
     transform: none;
     line-height: 1.28;
@@ -389,6 +422,11 @@
 
   .dianna__description {
     margin-top: 0.12rem;
+  }
+
+  .dianna__role,
+  .dianna__description {
+    font-size: 1.35rem;
   }
 
   .dianna__image {
@@ -475,7 +513,7 @@
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 1024px) {
   .footer__layout > .footer__title,
   .footer__layout > .footer__link,
   .footer__layout > p:not(.footer__title) {
@@ -579,7 +617,7 @@
   }
 }
 
-@media (min-width: 90rem) {
+@media (min-width: 1440px) {
   .hero {
     min-height: clamp(34rem, 64svh, 46rem);
   }
@@ -642,7 +680,7 @@
   }
 }
 
-@media (min-width: 48rem) and (max-width: 63.99rem) {
+@media (min-width: 768px) and (max-width: 1023.84px) {
   .footer {
     padding: 3rem 1.5rem 2.3rem;
   }
@@ -739,7 +777,7 @@
   }
 }
 
-@media (min-width: 64rem) and (max-height: 46rem) {
+@media (min-width: 1024px) and (max-height: 736px) {
   .hero {
     min-height: 24rem;
     padding-top: 1rem;
@@ -901,9 +939,69 @@
   }
 }
 
-@media (min-width: 120rem) {
+@media (min-width: 768px) and (max-width: 1919.84px) and (max-height: 736px) {
+  .dianna__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    justify-items: center;
+  }
+
+  .dianna__copy {
+    justify-self: center;
+    align-self: center;
+    place-self: center;
+    padding-top: 0;
+    transform: none;
+    text-align: center;
+  }
+
+  .dianna .section-title {
+    transform: none;
+    text-align: center;
+  }
+
+  .dianna__role,
+  .dianna__description {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .dianna__image {
+    width: 15rem;
+    max-width: 15rem;
+    justify-self: center;
+    align-self: center;
+    place-self: center;
+    transform: none;
+  }
+}
+
+@media (min-width: 1920px) {
   .hero {
     min-height: clamp(44rem, 82svh, 56rem);
+  }
+
+  .servicios h2 {
+    font-size: 4.4rem;
+  }
+
+  .servicios__note {
+    font-size: 1.5rem;
+    max-width: 30ch;
+  }
+
+  .calma h2 {
+    font-size: 3rem;
+    max-width: 30ch;
+  }
+
+  .calma__image {
+    width: min(100%, 30rem);
+  }
+
+  .calma p {
+    font-size: 1.45rem;
+    max-width: 44ch;
   }
 
   .dianna {
@@ -922,19 +1020,19 @@
   }
 
   .dianna .section-title {
-    font-size: 3.6rem;
+    font-size: 4.5rem;
     margin-bottom: 1.4rem;
   }
 
   .dianna__role,
   .dianna__description {
-    font-size: 1.35rem;
+    font-size: 1.6rem;
     max-width: 40ch;
   }
 
   .dianna__image {
-    width: min(100%, 28rem);
-    max-width: 28rem;
+    width: min(100%, 34rem);
+    max-width: 34rem;
     transform: translateY(1rem);
   }
 
