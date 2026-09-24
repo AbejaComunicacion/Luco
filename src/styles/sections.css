@@ -24,7 +24,7 @@
 
 .hero__lead {
   color: var(--color-brown-dark);
-  text-transform: lowercase;
+  text-transform: none;
   text-align: center;
   font-size: 1.5rem;
   padding-inline: 3.1rem;
@@ -51,10 +51,9 @@
 .calma__image {
   width: min(100%, 20rem);
   aspect-ratio: 1;
+  border-radius: var(--radius-lg);
   object-fit: cover;
   margin-inline: auto;
-  border-radius: 0.35rem;
-  border: 1px solid rgba(248, 230, 216, 0.25);
 }
 
 .calma h2 {
@@ -553,6 +552,44 @@
     width: min(100% - 12rem, 66rem);
   }
 
+  .calma__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+    grid-template-rows: auto auto;
+    column-gap: clamp(3rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .calma__layout > div:first-child {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .calma__body {
+    display: contents;
+  }
+
+  .calma__image {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: min(100%, 24rem);
+    height: auto;
+    max-width: 24rem;
+    aspect-ratio: auto;
+    object-fit: initial;
+    margin: 0;
+    justify-self: end;
+  }
+
+  .calma p {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    margin: 0;
+    text-align: left;
+  }
+
   .servicios .container {
     width: min(100% - 5rem, 92rem);
   }
@@ -564,7 +601,8 @@
   .dianna__layout {
     grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
     align-items: end;
-    gap: 0;
+    column-gap: clamp(4rem, 8vw, 8rem);
+    row-gap: 0;
     min-height: inherit;
   }
 
@@ -976,6 +1014,22 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1439.84px) and (max-height: 900px) {
+  .dianna__layout {
+    align-items: center;
+  }
+
+  .dianna__copy {
+    align-self: center;
+    padding-top: 0;
+  }
+
+  .dianna__image {
+    align-self: center;
+    transform: none;
+  }
+}
+
 @media (min-width: 1920px) {
   .hero {
     min-height: clamp(44rem, 82svh, 56rem);
@@ -997,6 +1051,10 @@
 
   .calma__image {
     width: min(100%, 30rem);
+    max-width: 30rem;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: initial;
   }
 
   .calma p {
