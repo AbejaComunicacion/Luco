@@ -87,6 +87,35 @@
   max-width: 22ch;
 }
 
+#experiencias {
+  background: var(--color-beige);
+  color: var(--color-brown-dark);
+}
+
+#experiencias .service-card {
+  background: var(--color-brown);
+  color: var(--color-beige);
+}
+
+#experiencias .service-card h3,
+#experiencias .service-card__price {
+  color: var(--color-beige);
+}
+
+#experiencias .carousel__arrow {
+  color: var(--color-brown-dark);
+  border-color: rgba(122, 66, 44, 0.6);
+}
+
+#experiencias .carousel__dot {
+  border-color: rgba(122, 66, 44, 0.6);
+}
+
+#experiencias .carousel__dot.is-active {
+  background: var(--color-brown-dark);
+  border-color: var(--color-brown-dark);
+}
+
 .horario {
   background: var(--color-beige);
   position: relative;

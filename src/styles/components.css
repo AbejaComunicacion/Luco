@@ -145,19 +145,19 @@
   flex: 0 0 var(--service-card-width);
   width: var(--service-card-width);
   max-width: 24.5rem;
-  aspect-ratio: 1 / 1.28;
-  min-height: 31rem;
+  min-height: 42rem;
+  height: auto;
   scroll-snap-align: center;
   background: var(--color-beige);
   color: var(--color-brown-dark);
   border-radius: 2.2rem;
-  padding: 5rem 2.5rem;
+  padding: 2.75rem 2rem;
   box-shadow: none;
   text-align: left;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   align-content: start;
-  overflow: hidden;
+  overflow: visible;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -180,11 +180,11 @@
 }
 
 .service-card h3 {
-  font-size: 2.7rem;
+  font-size: 2.4rem;
   letter-spacing: 0.09em;
   text-align: left;
   color: var(--color-brown-dark);
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.4rem;
 }
 
 .service-card p {
@@ -204,13 +204,13 @@
 }
 
 .service-card__includes {
-  margin-top: 0.8rem;
+  margin-top: 1.2rem;
   list-style: none;
   display: grid;
-  gap: 2.35rem;
-  font-size: clamp(1.25rem, 3.7vw, 1.7rem);
+  gap: 1.4rem;
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
   letter-spacing: 0.05em;
-  line-height: 1.25;
+  line-height: 1.35;
   text-align: left;
   align-self: start;
   justify-self: start;
@@ -218,30 +218,26 @@
 }
 
 .service-card__includes--primary {
-  margin-top: 0;
-  font-size: clamp(1.35rem, 4vw, 1.8rem);
-  gap: 2.35rem;
-}
-
-.service-card--primary {
-  display: flex;
-  align-items: center;
-}
-
-.service-card--primary .service-card__includes--primary {
-  align-self: center;
-  justify-self: stretch;
+  margin-top: 1.2rem;
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  gap: 1.4rem;
 }
 
 .service-card:not(.service-card--primary) .service-card__includes {
-  align-self: center;
+  align-self: start;
 }
 
 .service-card__price {
-  margin-top: 2.4rem;
-  font-size: clamp(2rem, 6.2vw, 2.6rem);
-  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-size: clamp(1.8rem, 5vw, 2.3rem);
+  letter-spacing: 0.05em;
   color: var(--color-brown-dark);
+}
+
+.service-card__price span {
+  font-size: 0.55em;
+  opacity: 0.8;
 }
 
 .carousel__controls {
@@ -490,14 +486,14 @@
 
   .service-card {
     width: var(--service-card-width);
-    aspect-ratio: 1 / 1.25;
     max-width: 30rem;
-    min-height: 33rem;
+    min-height: 44rem;
+    height: auto;
   }
 
   .service-card__includes,
   .service-card__includes--primary {
-    font-size: clamp(1.45rem, 2vw, 1.9rem);
+    font-size: clamp(1.25rem, 1.8vw, 1.55rem);
   }
 
   .marquee__image {
@@ -551,14 +547,14 @@
   .service-card {
     width: var(--service-card-width);
     max-width: 22rem;
-    min-height: 24rem;
-    aspect-ratio: 1 / 1.05;
+    min-height: 30rem;
+    height: auto;
     padding: 2.4rem 1.9rem;
   }
 
   .service-card h3 {
-    font-size: 2.15rem;
-    margin-bottom: 0.9rem;
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
   }
 
   .service-card p {
@@ -575,13 +571,14 @@
   }
 
   .service-card__includes {
-    margin-top: 0.6rem;
-    font-size: 1.2rem;
+    margin-top: 0.7rem;
+    gap: 1rem;
+    font-size: 1.3rem;
   }
 
   .service-card__price {
-    margin-top: 1.2rem;
-    font-size: 1.65rem;
+    margin-top: 0.35rem;
+    font-size: 1.85rem;
   }
 
   .carousel__controls {
@@ -628,20 +625,20 @@
   }
 
   .service-card {
-    min-height: 30rem;
-    aspect-ratio: 1 / 1.12;
+    min-height: 39rem;
+    height: auto;
     padding: 3.5rem 2.25rem;
   }
 
   .service-card h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.7rem;
+    margin-bottom: 1.1rem;
   }
 
   .service-card__includes,
   .service-card__includes--primary {
-    gap: 1.6rem;
-    font-size: 1.45rem;
+    gap: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 
