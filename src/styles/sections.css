@@ -87,6 +87,25 @@
   max-width: 22ch;
 }
 
+#servicios .service-card h3,
+#servicios .service-card__price,
+#servicios .service-card__price span,
+#servicios .service-card__duration,
+#servicios .service-card__includes,
+#servicios .service-card__includes li {
+  color: var(--color-brown-dark);
+  font-weight: 300;
+}
+
+#servicios .service-card__duration {
+  margin-top: 0.4rem;
+}
+
+#servicios .service-card__includes li:last-child {
+  color: var(--color-brown);
+  font-weight: 300;
+}
+
 #experiencias {
   background: var(--color-beige);
   color: var(--color-brown-dark);
@@ -98,8 +117,26 @@
 }
 
 #experiencias .service-card h3,
-#experiencias .service-card__price {
+#experiencias .service-card__price,
+#experiencias .service-card__price span,
+#experiencias .service-card__duration,
+#experiencias .service-card__includes,
+#experiencias .service-card__includes li {
   color: var(--color-beige);
+  font-weight: 300;
+}
+
+#experiencias .service-card__duration {
+  margin-top: 0.4rem;
+}
+
+#experiencias .service-card__includes li:last-child {
+  color: var(--color-cafe);
+  font-weight: 300;
+}
+
+#experiencias .service-card__includes {
+  border-top-color: rgba(248, 230, 216, 0.35);
 }
 
 #experiencias .carousel__arrow {
@@ -119,8 +156,11 @@
 .horario {
   background: var(--color-beige);
   position: relative;
+  z-index: 2;
   overflow: hidden;
-  padding: 8rem 0;
+  padding: 6.5rem 0 4.5rem;
+  margin-bottom: -3rem;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   justify-items: center;
   display: grid;
 }
@@ -172,8 +212,8 @@
 }
 
 .galeria {
-  background: var(--color-beige);
-  padding-bottom: 2.8rem;
+  background: var(--color-brown);
+  padding: 5.5rem 0 2.8rem;
 }
 
 .dianna {
@@ -231,6 +271,12 @@
     margin-top: 6rem;
     margin-bottom: -3rem;
     transform: none;
+  }
+
+  .calma h2 {
+    text-align: center;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
   }
 
   .servicios h2 {
@@ -417,7 +463,7 @@
   }
 
   .horario {
-    padding: 5.5rem 0;
+    padding: 7.5rem 0 5.5rem;
   }
 
   .galeria {
@@ -695,10 +741,14 @@
   }
 
   .calma,
-  .servicios,
-  .horario {
+  .servicios {
     padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  .horario {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
   }
 
   .servicios .container {
@@ -921,7 +971,7 @@
   }
 
   .horario {
-    padding: 3rem 0;
+    padding: 5rem 0 3rem;
   }
 
   .horario__content .section-title {
@@ -1067,6 +1117,10 @@
 @media (min-width: 1920px) {
   .hero {
     min-height: clamp(44rem, 82svh, 56rem);
+  }
+
+  .horario {
+    padding: 6rem 0;
   }
 
   .servicios h2 {
