@@ -214,28 +214,55 @@ function initGallery() {
     "images/fotos/AC_Luco_SF_Local_05.jpg",
   ];
   let activeIndex = 0;
+  let trackBuilt = false;
 
-  imageSources.forEach((source, index) => {
-    const image = document.createElement("img");
-    image.className = "marquee__image";
-    image.src = source;
-    image.alt = `Galeria Luco imagen ${index + 1}`;
-    image.dataset.galleryIndex = String(index);
-    image.loading = "lazy";
-    image.decoding = "async";
-    track.appendChild(image);
-  });
+  function buildTrack() {
+    if (trackBuilt) {
+      return;
+    }
+    trackBuilt = true;
 
-  imageSources.forEach((source) => {
-    const image = document.createElement("img");
-    image.className = "marquee__image";
-    image.src = source;
-    image.alt = "";
-    image.setAttribute("aria-hidden", "true");
-    image.loading = "lazy";
-    image.decoding = "async";
-    track.appendChild(image);
-  });
+    // Safari fails to trigger native lazy-loading for images that only enter
+    // the viewport via a CSS transform animation, leaving them blank forever
+    // and forcing constant re-layout checks (visible as a very slow marquee).
+    // Images are appended eagerly once the section is about to be visible.
+    imageSources.forEach((source, index) => {
+      const image = document.createElement("img");
+      image.className = "marquee__image";
+      image.src = source;
+      image.alt = `Galeria Luco imagen ${index + 1}`;
+      image.dataset.galleryIndex = String(index);
+      image.decoding = "async";
+      track.appendChild(image);
+    });
+
+    imageSources.forEach((source) => {
+      const image = document.createElement("img");
+      image.className = "marquee__image";
+      image.src = source;
+      image.alt = "";
+      image.setAttribute("aria-hidden", "true");
+      image.decoding = "async";
+      track.appendChild(image);
+    });
+  }
+
+  const gallerySection = track.closest(".galeria");
+
+  if (gallerySection && "IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver(
+      (entries, observer) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          buildTrack();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px 0px" },
+    );
+    sectionObserver.observe(gallerySection);
+  } else {
+    buildTrack();
+  }
 
   function showImage(index) {
     activeIndex = (index + imageSources.length) % imageSources.length;
