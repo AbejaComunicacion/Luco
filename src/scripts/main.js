@@ -190,16 +190,28 @@ function initGallery() {
   }
 
   const imageSources = [
-    ...Array.from({ length: 22 }, (_, index) => {
-      const imageNumber = String(index + 1).padStart(2, "0");
-      return `images/fotos/AC_Luco_SF_Content_${imageNumber}.png`;
-    }),
-    ...Array.from({ length: 4 }, (_, index) => {
-      const imageNumber = String(index + 23).padStart(2, "0");
-      return `images/fotos/AC_Luco_SF_Educacion_${imageNumber}.png`;
-    }),
-    "images/fotos/AC_Luco_SF_Content_27.png",
-    "images/fotos/AC_Luco_SF_Content_28.png",
+    "images/fotos/AC_Luco_SF_Content_01.jpg",
+    "images/fotos/AC_Luco_SF_Content_03.jpg",
+    "images/fotos/AC_Luco_SF_Content_04.jpg",
+    "images/fotos/AC_Luco_SF_Content_05.jpg",
+    "images/fotos/AC_Luco_SF_Content_11.jpg",
+    "images/fotos/AC_Luco_SF_Content_12.jpg",
+    "images/fotos/AC_Luco_SF_Content_14.jpg",
+    "images/fotos/AC_Luco_SF_Content_16.jpg",
+    "images/fotos/AC_Luco_SF_Content_19.jpg",
+    "images/fotos/AC_Luco_SF_Content_27.jpg",
+    "images/fotos/AC_Luco_SF_Educacion_01.jpg",
+    "images/fotos/AC_Luco_SF_Educacion_04.jpg",
+    "images/fotos/AC_Luco_SF_Educacion_05.jpg",
+    "images/fotos/AC_Luco_SF_Educacion_10.jpg",
+    "images/fotos/AC_Luco_SF_Educacion_12.jpg",
+    "images/fotos/AC_Luco_SF_Educacion_15.jpg",
+    "images/fotos/AC_Luco_SF_Educacion_17.jpg",
+    "images/fotos/AC_Luco_SF_Educacion_18.jpg",
+    "images/fotos/AC_Luco_SF_Educacion_23.jpg",
+    "images/fotos/AC_Luco_SF_Local_01.jpg",
+    "images/fotos/AC_Luco_SF_Local_03.jpg",
+    "images/fotos/AC_Luco_SF_Local_05.jpg",
   ];
   let activeIndex = 0;
 
@@ -209,6 +221,8 @@ function initGallery() {
     image.src = source;
     image.alt = `Galeria Luco imagen ${index + 1}`;
     image.dataset.galleryIndex = String(index);
+    image.loading = "lazy";
+    image.decoding = "async";
     track.appendChild(image);
   });
 
@@ -218,6 +232,8 @@ function initGallery() {
     image.src = source;
     image.alt = "";
     image.setAttribute("aria-hidden", "true");
+    image.loading = "lazy";
+    image.decoding = "async";
     track.appendChild(image);
   });
 
