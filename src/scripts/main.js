@@ -176,6 +176,45 @@ function initSiteNav() {
   document.addEventListener("click", closeMenu);
 }
 
+function initStickyHeader() {
+  const header = document.querySelector(".site-header");
+
+  if (!header) {
+    return;
+  }
+
+  const OPEN_MS = 3000;
+  let closeTimer = 0;
+
+  function syncCollapsed() {
+    header.classList.toggle("is-collapsed", window.scrollY > 40);
+  }
+
+  function scheduleClose() {
+    window.clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(() => header.classList.remove("is-open"), OPEN_MS);
+  }
+
+  function open() {
+    window.clearTimeout(closeTimer);
+    header.classList.add("is-open");
+  }
+
+  header.addEventListener("pointerenter", open);
+  header.addEventListener("pointerdown", open);
+  header.addEventListener("pointerleave", scheduleClose);
+  header.addEventListener("pointerup", (event) => {
+    if (event.pointerType !== "mouse") {
+      scheduleClose();
+    }
+  });
+  header.addEventListener("focusin", open);
+  header.addEventListener("focusout", scheduleClose);
+
+  window.addEventListener("scroll", syncCollapsed, { passive: true });
+  syncCollapsed();
+}
+
 function initGallery() {
   const track = document.querySelector("[data-gallery-track]");
   const dialog = document.querySelector("[data-gallery-dialog]");
@@ -346,6 +385,7 @@ function initGallery() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initSiteNav();
+  initStickyHeader();
   initCarousel();
   initGallery();
 });
