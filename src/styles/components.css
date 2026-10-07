@@ -323,8 +323,8 @@
   display: flex;
   gap: var(--marquee-gap);
   width: max-content;
-  animation: luco-marquee 84s linear infinite;
   will-change: transform;
+  backface-visibility: hidden;
   margin: 2.5rem 0;
 }
 
@@ -472,16 +472,6 @@
   .gallery-dialog__counter {
     grid-column: 1 / -1;
     grid-row: 4;
-  }
-}
-
-@keyframes luco-marquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(calc(-50% - (var(--marquee-gap) / 2)));
   }
 }
 

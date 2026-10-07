@@ -245,6 +245,38 @@ function initGallery() {
       image.decoding = "async";
       track.appendChild(image);
     });
+
+    startMarquee();
+  }
+
+  // Safari's CSS animation implementation doesn't reliably recompute the
+  // translateX keyframe once the track's width changes after images are
+  // appended, causing the loop to stall or skip images. Driving the
+  // movement from JS with the track's actual measured width avoids that.
+  function startMarquee() {
+    const gapPx = parseFloat(getComputedStyle(track).gap) || 0;
+    let halfWidth = (track.scrollWidth - gapPx) / 2;
+    let offset = 0;
+    let lastTimestamp = null;
+
+    function updateHalfWidth() {
+      halfWidth = (track.scrollWidth - gapPx) / 2;
+    }
+
+    window.addEventListener("resize", updateHalfWidth);
+
+    function frame(timestamp) {
+      if (lastTimestamp !== null && halfWidth > 0 && !document.hidden) {
+        const delta = timestamp - lastTimestamp;
+        const pixelsPerMs = halfWidth / 84000;
+        offset = (offset + delta * pixelsPerMs) % halfWidth;
+        track.style.transform = `translateX(${-offset}px)`;
+      }
+      lastTimestamp = timestamp;
+      requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
   }
 
   const gallerySection = track.closest(".galeria");
