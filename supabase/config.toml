@@ -11,3 +11,4 @@ major_version = 15
 
 [auth]
 enable_signup = false
+minimum_password_length = 8
