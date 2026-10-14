@@ -1,45 +1,33 @@
 # LUCO Estudio - Landing Mobile First
 
-## Stack elegido
-- HTML5 semantico para una landing rapida y mantenible.
-- CSS3 modular (base, componentes y secciones) para escalar estilo sin deuda tecnica.
-- JavaScript ES Modules para interacciones puntuales (carrusel) sin sobrecargar el proyecto.
+# LUCO Estudio
 
-Este formato es el mejor punto de partida para el estado actual porque:
-- Permite una entrega fiel al diseno visual de forma inmediata.
-- Tiene coste de mantenimiento bajo para una landing.
-- Escala de forma ordenada hacia un framework con rutas privadas (por ejemplo, Next.js o Astro) reutilizando estilos, naming y componentes.
+Next.js App Router y TypeScript para la zona privada; la página HTML/CSS/JavaScript pública original se conserva en `index.html`, junto con los recursos originales. Next.js sirve una copia de esa página en `public/legacy.html`; la página original incluye el enlace a la zona de alumnado. No se elimina ni sustituye la web estática de partida.
 
-## Estructura
+## Desarrollo local
 
-```text
-.
-|-- images
-|   |-- fotos
-|   `-- Univero_Grafico_Luco
-|-- index.html
-|-- README.md
-`-- src
-    |-- scripts
-    |   |-- main.js
-    |   `-- modules
-    |       `-- carousel.js
-    `-- styles
-        |-- base.css
-        |-- components.css
-        `-- sections.css
+Requiere Node.js 22 y npm.
+
+```bash
+npm ci
+cp .env.example .env.local
+npm run dev
 ```
 
-## Recursos usados
-- Carpeta de marca: `images/Univero_Grafico_Luco/`
-- Imagen escaparate: `images/fotos/luco_escaparate.png`
-- Imagen retrato: `images/fotos/woman_1.png`
+En Windows, copia `.env.example` a `.env.local` con el Explorador o PowerShell. Añade localmente la clave publicable de Supabase y la clave de servicio solo si se necesitan invitaciones; `.env.local` está excluido de Git.
 
-## Escalabilidad futura (sin implementar aun)
-- Crear carpeta `src/features/` para modulos por dominio (publico, academia, perfil, etc.).
-- Incorporar un router (o migrar a framework SSR/SSG) para secciones privadas.
-- Integrar autenticacion y autorizacion por roles en una capa separada de UI.
-- Mantener diseno y tokens de color/fuente ya definidos en `src/styles/base.css`.
+- Web pública: `http://localhost:3000/`
+- Zona alumnado: `http://localhost:3000/alumnado/login`
+- Administración: `http://localhost:3000/admin/login`
 
-## Vista local
-Abrir `index.html` en navegador o usar un servidor estatico.
+La API de Supabase respondió a una comprobación de salud de Auth. La API REST respondió que `public.profiles` no está en la caché de esquema (`PGRST205`), así que la migración aún no está aplicada. No se incluye registro público. Consulta [Supabase y las migraciones](./supabase/README.md) y [el despliegue Plesk](./DEPLOYMENT.md).
+
+## Comprobaciones
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
+
+No apliques migraciones remotas ni modifiques DNS o producción sin comprobar el destino y autorización.
